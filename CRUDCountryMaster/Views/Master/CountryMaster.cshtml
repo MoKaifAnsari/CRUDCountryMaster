@@ -1,0 +1,80 @@
+﻿@{ Layout = null; }
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.6.3.js"></script>
+    <script src="~/Script/CountryMaster.js"></script>
+    <script src="~/Script/AutoComplete.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <form method="post" id="MyForm" autocomplete="off" >
+        <div class="outer">
+            <div class="row">
+                <div class="col-sm-2">
+                    @{ Html.RenderPartial("_navbar");
+                    }
+                </div>
+                <div class="col-sm-10 border border-1 rounded">
+                    <div class="row fs-5">
+                        <div class="col-sm-2">
+                            <a href="/Master/CountryMaster"> Country Master </a>
+                        </div>
+                        <div class="col-sm-2 float-end">
+                            <a href="/Master/StateMaster"> State Master </a>
+                        </div>
+                    </div><br />
+
+                    <input type="hidden" id="hfID" value="0" />
+
+                    <div class="row country bg-danger rounded-top text-white">Country Master</div>
+                    <div class="row">
+                        <div class="col-sm-6 ms-0">
+                            <lable>Country Code</lable><span style="color:red;">*</span>
+                            <input type="text" id="txtCountryCode" class="form-control" name="CountryCode" placeholder="Country Code " />
+                            <lable>Country Name</lable><span style="color:red;">*</span>
+                            <input type="text" id="txtCountryName" class="form-control" name="CountryName" placeholder="Country Name" />
+                            <input type="checkbox" id="IsActive" name="IsActive" class="ms-5" /><lable>Active</lable>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" id="StateRequired" name="StateRequired" class="mt-4" /><lable>State Required</lable><br />
+                            <input type="checkbox" id="PincodeRequired" name="PincodeRequired" class="mt-2" /><lable>Pincode Required</lable>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8 text-center">
+                            <button class="btn btn-outline-success" type="submit" id="Save">Save</button>
+
+                            <button class="btn btn-outline-warning" type="reset" id="Reset">Reset</button>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <nav class="navbar navbar-light bg-danger rounded-top w-100">
+                    <b><i id="lblTotal"></i></b>
+                    <div class="d-flex">
+
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div id="dvGrid" class="col-sm-10" style="text-align:center;">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
